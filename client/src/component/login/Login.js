@@ -53,7 +53,7 @@ const Login=()=>{
                 console.log(res.data.message)
               if(res.data.message=="Successfull")
               {
-                notify();
+                
                 console.log("Login successfully")
                 const userdata=res.data.user;
                 console.log("backend data "+ userdata.firstName);

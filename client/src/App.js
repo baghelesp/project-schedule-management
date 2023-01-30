@@ -9,26 +9,20 @@ import Profile  from './component/Userdashboard/profile/Profile';
 import {BrowserRouter,Link,Route,Routes} from'react-router-dom'
 import Admindashboard from './component/Admin/Admindashboard';
 import Createproject from './component/Admin/Createproject';
-import Gantt from './component/Gantt';
-
 function App() {
-  const data={
-    data:[
-      { id:1, text:'Task #1',start_date:'15-04-2021',duration:3, progress:0.6},
-      { id:2, text:'Task #2',start_date:'18-04-2021',duration:3, progress:0.4}
-    ],
-    links:[
-      {id:1, source:1, target:2, type:'0'}
-    ]
-  };
   return (
-    <div >
-    <div className="gantt-container">
-    hello
-      <Gantt tasks={data}/>
-    </div>
-   
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path='/' element={<Home/>}>
+          <Route path='/login' element={<Login/>}> </Route>
+          <Route path='/register' element={<Register/>}></Route>
+          <Route path='/adminlogin' element={<Adminlogin/>}></Route>
+        </Route> 
+        <Route  path='/userdashboard' element={<Userdashboard/>}>
+            <Route  path='/userdashboard/projects' element={<Projects/>}></Route>
+        </Route> 
+      </Routes>
+    </BrowserRouter>
   );
 }
 
