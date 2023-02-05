@@ -10,6 +10,9 @@ const login= require("./route/login");
 const adminlogin= require("./route/adminlogin");
 const project =require("./route/createproject");
 const userproject =require("./route/userproject");
+const updateprogress= require("./route/updateprogress");
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
 connection();
@@ -20,6 +23,7 @@ app.use("/api/login",login);
 app.use("/api/adminlogin",adminlogin);
 app.use("/api/createproject",project);
 app.use("/api/userproject",userproject);
+app.use("/api/updateprogress", updateprogress);
 
 const port=5000;
 app.listen(port,()=>{

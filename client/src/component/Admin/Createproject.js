@@ -6,10 +6,14 @@ import axios from 'axios';
 function Createproject() {
     const [data, setData]=useState({
         projectName:"",
-        problemStatement:"",    
+        problemStatement:"",   
+        sow:"", 
         empemail:"",
         startDate:"",
-        endDate:""
+        endDate:"",
+        budget:0,
+        status:"Active",
+
     })
     function handleData(e){
         const newdata={...data}
@@ -59,6 +63,10 @@ function Createproject() {
         <textarea value={data.problemStatement} onChange={(e)=>handleData(e)} name="problemStatement" id="problemStatement"  rows="3"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required/>
     </div>
     <div>
+        <label for="sow" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Statement Of Work</label>
+        <textarea value={data.sow} onChange={(e)=>handleData(e)} name="sow" id="sow" rows="3"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required/>
+    </div>
+    <div>
         <label for="empemail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Assign Project (Enter Email Id)</label>
         <input type="email" value={data.empemail} onChange={(e)=>handleData(e)} name="empemail" id="empemail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required/>
     </div>
@@ -72,6 +80,18 @@ function Createproject() {
         <input type="date" value={data.endDate} onChange={(e)=>handleData(e)} name="endDate" id="endDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"  required/>
     </div>
     </div>
+    <div>
+        <label for="budget" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Assign Project (Enter Email Id)</label>
+        <input type='number' value={data.budget} onChange={(e)=>handleData(e)} name="budget" id="budget" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required/>
+    </div>
+    <div>
+                    <label for="status" class="block mb-2 text-sm font-medium dark:text-white ">Status</label>
+                    <select id="status" name="status" value={data.status} onChange={handleData} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value="Active"  selected>Active</option>
+                    <option value="Closed">Closed</option>
+                    <option value="Suspended">Suspended</option>
+                    </select>
+                </div>
     <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create Project</button>
     
 </form>

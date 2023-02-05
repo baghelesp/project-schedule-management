@@ -20,6 +20,11 @@ function App() {
         </Route> 
         <Route  path='/userdashboard' element={<Userdashboard/>}>
             <Route  path='/userdashboard/projects' element={<Projects/>}></Route>
+            <Route  path='/userdashboard/profile' element={<Profile/>}></Route>
+        </Route> 
+        <Route  path='/admindashboard' element={<Admindashboard/>}>
+            <Route  path='/admindashboard/createproject' element={<Createproject/>}></Route>
+            
         </Route> 
       </Routes>
     </BrowserRouter>
