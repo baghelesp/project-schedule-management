@@ -16,13 +16,10 @@ const Ganttchart = () => {
 	const taskColumns = [{
 		label: 'Tasks',
 		value: 'label',
-		
-		
 	},
 	{
 		label: 'Team',
-		value: 'class',
-		
+		value: 'class',	
 	},
 	{
 		label: 'Duration (days)',
@@ -35,20 +32,16 @@ const Ganttchart = () => {
 		id:1,
 		label: 'PRD & User-Stories',
 		dateStart: '2021-01-10',
-		dateEnd: '2021-02-10',
+		dateEnd: '2021-03-10',
 		class: 'product-team',
 		progress: progress,
-		type: 'task',
-		resources: [{
-			id: 'megan',
-			label: 'Megan',
-		}]
+		type: 'task'
 	},
 	{
 		id:2,
 		label: 'Persona & Journey',
-		dateStart: '2021-02-01',
-		dateEnd: '2021-03-30',
+		dateStart: '2021-03-01',
+		dateEnd: '2021-04-30',
 		class: 'marketing-team',
 		type: 'task'
 	},

@@ -8,20 +8,40 @@ function Createproject() {
         projectName:"",
         problemStatement:"",   
         sow:"", 
-        empemail:"",
+        empemail:[],
         startDate:"",
         endDate:"",
         budget:0,
         status:"Active",
 
     })
+    const [empemail, setempemail]=useState();
+
     function handleData(e){
         const newdata={...data}
         newdata[e.target.id]=e.target.value
         setData(newdata)
         console.log(newdata)
     }
-
+    function handleEmail(e){
+        const email=e.target.value;
+        setempemail(email);
+        console.log(email);
+    }
+    function addNewEmail()
+    {
+        
+        if(data.empemail.indexOf(empemail)==-1)
+        {
+            let currentdata=data;
+            currentdata.empemail.push(empemail);
+            const temp=currentdata
+            setData(temp);
+        }
+    }
+    const renderList = data.empemail.map((item, index) => 
+                               <span class="text-white mt-1 pr-3 text-sm font-thin" key={index}>{item}</span>
+                             );
     const navigate=useNavigate();
 
     const handleSubmit=async(e)=>{
@@ -51,48 +71,63 @@ function Createproject() {
    
     <>
     
-<div class="m-2 p-4 mr-2 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+<div class="m-2 p-4 mr-2 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8bg-sky  hover:bg-sky-600 dark:bg-sky-900 dark:border-sky-900 dark:hover:bg-sky-800">
 <form class="space-y-6" onSubmit={(e)=>handleSubmit(e)} action="#">
     <h5 class="text-xl font-medium text-gray-900 dark:text-white">Create Project</h5>
     <div>
         <label for="projectName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Project Name</label>
-        <input value={data.projectName} onChange={(e)=>handleData(e)} type="text" name="projectName" id="projectName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required/>
+        <input value={data.projectName} onChange={(e)=>handleData(e)} type="text" name="projectName" id="projectName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" placeholder="name@company.com" required/>
     </div>
     <div>
         <label for="problemStatement" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Problem Statement</label>
-        <textarea value={data.problemStatement} onChange={(e)=>handleData(e)} name="problemStatement" id="problemStatement"  rows="3"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required/>
+        <textarea value={data.problemStatement} onChange={(e)=>handleData(e)} name="problemStatement" id="problemStatement"  rows="2"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" required/>
     </div>
     <div>
         <label for="sow" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Statement Of Work</label>
-        <textarea value={data.sow} onChange={(e)=>handleData(e)} name="sow" id="sow" rows="3"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required/>
+        <textarea value={data.sow} onChange={(e)=>handleData(e)} name="sow" id="sow" rows="2"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" required/>
     </div>
     <div>
         <label for="empemail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Assign Project (Enter Email Id)</label>
-        <input type="email" value={data.empemail} onChange={(e)=>handleData(e)} name="empemail" id="empemail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required/>
+        <div class="flex">
+        <input type="email" value={empemail} onChange={(e)=>handleEmail(e)} name="empemail" id="empemai" class="bg-gray-50 border w-2/6 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" placeholder="name@company.com" />
+        
+        <button type="button" onClick={addNewEmail} class="bg-green-500 m-2 hover:bg-green-600 text-white font-semibold  px-2 rounded-full">
+            Add ID
+        </button>
+        
+        </div>
+        
+        <div >
+            <div class="font-normal text-sm mt-2 text-white">Added Members</div>
+                {renderList}
     </div>
+        
+    </div>
+    
+    
     <div class="flex">
     <div class="mr-2">
     <label for="startDate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Project Start Date</label>
-        <input type="date" value={data.startDate} onChange={(e)=>handleData(e)} name="startDate" id="startDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"  required/>
+        <input type="date" value={data.startDate} onChange={(e)=>handleData(e)} name="startDate" id="startDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"  required/>
     </div>
     <div class="ml-2">
     <label for="endDate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Project End Date</label>
-        <input type="date" value={data.endDate} onChange={(e)=>handleData(e)} name="endDate" id="endDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"  required/>
+        <input type="date" value={data.endDate} onChange={(e)=>handleData(e)} name="endDate" id="endDate" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"  required/>
     </div>
     </div>
     <div>
-        <label for="budget" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Assign Project (Enter Email Id)</label>
-        <input type='number' value={data.budget} onChange={(e)=>handleData(e)} name="budget" id="budget" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required/>
+        <label for="budget" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Budget</label>
+        <input type='number' value={data.budget} onChange={(e)=>handleData(e)} name="budget" id="budget" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" placeholder="name@company.com" required/>
     </div>
     <div>
                     <label for="status" class="block mb-2 text-sm font-medium dark:text-white ">Status</label>
-                    <select id="status" name="status" value={data.status} onChange={handleData} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <select id="status" name="status" value={data.status} onChange={handleData} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-white dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option value="Active"  selected>Active</option>
                     <option value="Closed">Closed</option>
                     <option value="Suspended">Suspended</option>
                     </select>
                 </div>
-    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create Project</button>
+    <button type="submit" class="w-full font-bold text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300  rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-green-700">Create Project</button>
     
 </form>
 </div>

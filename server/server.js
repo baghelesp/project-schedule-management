@@ -11,7 +11,7 @@ const adminlogin= require("./route/adminlogin");
 const project =require("./route/createproject");
 const userproject =require("./route/userproject");
 const updateprogress= require("./route/updateprogress");
-
+const projectreport= require("./route/projectreport");
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
@@ -24,6 +24,7 @@ app.use("/api/adminlogin",adminlogin);
 app.use("/api/createproject",project);
 app.use("/api/userproject",userproject);
 app.use("/api/updateprogress", updateprogress);
+app.use("/api/projectreport",projectreport);
 
 const port=5000;
 app.listen(port,()=>{
