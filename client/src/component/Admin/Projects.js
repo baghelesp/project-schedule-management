@@ -2,8 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
-//notify
-import { ToastContainer, toast } from 'react-toastify';
 //progress bar
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Progress } from 'antd'
@@ -12,18 +10,6 @@ import Ganttchart from './Ganttchart';
 
 const Projects = () => {
   
-  const notify = () => {
-    toast.success("Progress Saved!", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        });
-}
   
   
 let projectList;
@@ -68,7 +54,7 @@ let projectList;
   return (
     
     <>
-    <ToastContainer/>
+    
     {projects.map((item, index) => (
         <div key={index}>
         <div class="p-1">

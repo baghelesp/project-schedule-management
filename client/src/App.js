@@ -8,13 +8,20 @@ import Projects from './component/Userdashboard/projects/Projects';
 import Profile  from './component/Userdashboard/profile/Profile';
 import {BrowserRouter,Link,Route,Routes,Navigate} from'react-router-dom'
 import Admindashboard from './component/Admin/Admindashboard';
+import AdminProfile from './component/Admin/profile/Profile';
+import Query from './component/Admin/Query';
 import Createproject from './component/Admin/Createproject';
-import Projectreport from './component/Admin/Projects';
+import Allproject from './component/Admin/Projects';
 import Workdowndetails from './component/Userdashboard/projects/workdowndetails';
 import Navbar from './component/Userdashboard/projects/navbar';
 import Showtimeline from './component/Userdashboard/projects/timeline';
 import Landingpage from './component/Landingpage/landingpage';
 import Home from './component/Home/Home'
+//
+import ProjectReport from './component/Admin/ProjectReport/ProjectReport';
+import ActiveProject from './component/Admin/ProjectReport/ActiveProject';
+import DelayedProject from './component/Admin/ProjectReport/DelayedProject';
+import ClosedProject from './component/Admin/ProjectReport/ClosedProject';
 
 function App() {
   return (
@@ -41,8 +48,16 @@ function App() {
             <Route  path='/userdashboard/workstructure' element={<Workdowndetails/>}></Route>
         </Route> 
         <Route  path='/admindashboard' element={<Admindashboard/>}>
+            <Route path='/admindashboard/query' element={<Query/>}></Route>
+            <Route path='/admindashboard/profile' element={<AdminProfile/>}></Route>
             <Route  path='/admindashboard/createproject' element={<Createproject/>}></Route>
-            <Route  path='/admindashboard/projectreport' element={<Projectreport/>}></Route>
+            <Route  path='/admindashboard/allproject' element={<Allproject/>}></Route>
+            <Route  path='/admindashboard/projectreport' element={<ProjectReport/>}>
+                <Route path='/admindashboard/projectreport/active' element={<ActiveProject/>}></Route>
+                <Route  path='/admindashboard/projectreport' element={<Navigate replace to="/admindashboard/projectreport/active" />}></Route>
+                <Route path='/admindashboard/projectreport/closed' element={<ClosedProject/>}></Route>
+                <Route path='/admindashboard/projectreport/delayed' element={<DelayedProject/>}></Route>
+            </Route>
             
         </Route> 
       </Routes>
