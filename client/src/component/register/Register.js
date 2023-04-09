@@ -6,7 +6,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Carousel } from 'react-responsive-carousel';
-const img1= require('../../assets/homeImg.png')
+const img1= require('../../assets/Lpage.jpg');
+const img2= require('../../assets/Lpage2.jpg');
+const img3= require('../../assets/Lpage3.jpeg');
 
 
 
@@ -134,20 +136,20 @@ const Register=()=>{
 </form>
 </div>
 
-<div class="w-full md:w-2/3">
+<div class="w-full md:w-2/3 py-10">
 
 <Carousel infiniteLoop useKeyboardArrows autoPlay showArrows >
 <div>
-    <img src={img1} />
-    <p className="legend">Legend 1</p>
+    <img class="rounded-md" src={img2} />
+    
 </div>
 <div>
-    <img src={img1} />
-    <p className="legend">Legend 2</p>
+    <img class="rounded-md" src={img3} />
+   
 </div>
 <div>
-    <img src={img1} />
-    <p className="legend">Legend 3</p>
+    <img class="rounded-md" src={img1} />
+    
 </div>
 </Carousel>
 

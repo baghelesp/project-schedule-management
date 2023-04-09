@@ -1,7 +1,7 @@
 import React from "react";
-import img from './picon.png'
-import img2 from './picon2.png'
-import img3 from './picon3.png'
+import img from '../../../assets/projectIcons/picon.png'
+import img2 from '../../../assets/projectIcons/picon2.png'
+import img3 from '../../../assets/projectIcons/picon3.png'
 
 function ClosedProject() {
     const projects = [

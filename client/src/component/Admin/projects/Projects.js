@@ -1,18 +1,18 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import axios from 'axios';
 //progress bar
-import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
-import { Button, Progress } from 'antd'
-import Ganttchart from './Ganttchart';
-
-
+import { Progress } from 'antd'
+import Ganttchart from '../Ganttchart';
+import {Route, Link, Routes, useNavigate} from 'react-router-dom';
 const Projects = () => {
   
-  
-  
 let projectList;
+const navigate = useNavigate();
+	const goBack = () => {
+		navigate(-1);
+	}
+
   const [projects, setProjects] = React.useState(null);
   
   React.useEffect(() => {
@@ -53,7 +53,11 @@ let projectList;
 
   return (
     
-    <>
+    <div class="text-center">
+    <button onClick={goBack} class="rounded-md bg-blue-500 py-1 px-2 text-white">Go Back</button>
+    <div>
+
+    </div>
     
     {projects.map((item, index) => (
         <div key={index}>
@@ -133,7 +137,7 @@ let projectList;
 
     
 
-    </>
+    </div>
   );
 };
 

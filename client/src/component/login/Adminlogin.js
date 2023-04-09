@@ -8,7 +8,12 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const img1= require('../../assets/homeImg.png')
+
+const img1= require('../../assets/Lpage.jpg');
+const img2= require('../../assets/Lpage2.jpg');
+const img3= require('../../assets/Lpage3.jpeg');
+
+
 
 
 
@@ -75,7 +80,7 @@ const Login=()=>{
     }
     return(
         <div class="md:flex ">
-        <div class="w-full md:w-1/3  p-4 m-1 bg-white border border-gray-200 rounded-lg shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-full  md:w-1/3  p-4 m-1 bg-white border border-gray-200 rounded-lg shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
             <form class="space-y-6" action="#" onSubmit={(e)=>handleSubmit(e)}>
                 <h5 class="text-xl font-medium text-gray-900 dark:text-white">Login</h5>
                 
@@ -107,20 +112,20 @@ const Login=()=>{
 </form>
 </div>
 
-<div class="w-full md:w-2/3">
+<div class="py-10 w-full md:w-2/3">
 
 <Carousel infiniteLoop useKeyboardArrows autoPlay showArrows  >
 <div>
-    <img src={img1} />
-    <p className="legend">Legend 1</p>
+    <img class="rounded-md" src={img1} />
+   
 </div>
 <div>
-    <img src={img1} />
-    <p className="legend">Legend 2</p>
+    <img class="rounded-md" src={img2} />
+    
 </div>
 <div>
-    <img src={img1} />
-    <p className="legend">Legend 3</p>
+    <img class="rounded-md" src={img3} />
+    
 </div>
 </Carousel>
 

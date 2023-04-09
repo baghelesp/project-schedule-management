@@ -11,7 +11,8 @@ import Admindashboard from './component/Admin/Admindashboard';
 import AdminProfile from './component/Admin/profile/Profile';
 import Query from './component/Admin/Query';
 import Createproject from './component/Admin/Createproject';
-import Allproject from './component/Admin/Projects';
+import Allproject from './component/Admin/projects/AllProjects';
+import SingleProject from './component/Admin/projects/Projects';
 import Workdowndetails from './component/Userdashboard/projects/workdowndetails';
 import Navbar from './component/Userdashboard/projects/navbar';
 import Showtimeline from './component/Userdashboard/projects/timeline';
@@ -22,6 +23,11 @@ import ProjectReport from './component/Admin/ProjectReport/ProjectReport';
 import ActiveProject from './component/Admin/ProjectReport/ActiveProject';
 import DelayedProject from './component/Admin/ProjectReport/DelayedProject';
 import ClosedProject from './component/Admin/ProjectReport/ClosedProject';
+
+//
+import Inbox from './component/Userdashboard/Query/Inbox'
+import PostQuery from './component/Userdashboard/Query/PostQuery'
+import QueryNavbar from './component/Userdashboard/Query/QueryNavbar'
 
 function App() {
   return (
@@ -36,6 +42,11 @@ function App() {
        
         </Route>
         <Route  path='/userdashboard' element={<Userdashboard/>}>
+            <Route  path='/userdashboard/query' element={<QueryNavbar/>}>
+                <Route path='/userdashboard/query/inbox' element={<Inbox/>}></Route>
+                <Route path='/userdashboard/query' element={<Navigate replace to='/userdashboard/query/inbox' />} />
+                <Route path='/userdashboard/query/postquery' element={<PostQuery/>}></Route>
+            </Route>
               
             <Route  path='/userdashboard/projects' element={<Navbar/>}>
               <Route  path='/userdashboard/projects/details' element={<Projects/>}></Route>
@@ -52,6 +63,7 @@ function App() {
             <Route path='/admindashboard/profile' element={<AdminProfile/>}></Route>
             <Route  path='/admindashboard/createproject' element={<Createproject/>}></Route>
             <Route  path='/admindashboard/allproject' element={<Allproject/>}></Route>
+            <Route  path='/admindashboard/project' element={<SingleProject/>}></Route>
             <Route  path='/admindashboard/projectreport' element={<ProjectReport/>}>
                 <Route path='/admindashboard/projectreport/active' element={<ActiveProject/>}></Route>
                 <Route  path='/admindashboard/projectreport' element={<Navigate replace to="/admindashboard/projectreport/active" />}></Route>

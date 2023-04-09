@@ -105,7 +105,13 @@ function Workdowndetails() {
       )
     })
   }
-  <button onClick={handleAddTask} class="rounded-lg bg-amber-200">add task</button>
+
+  <div>
+  <button onClick={handleAddTask} class="rounded-lg text-white py-1 px-2 m-1 bg-sky-600">add task</button>
+  <button class="rounded-lg text-white py-1 px-2 m-1 mr-4 float-right bg-green-600">Submit</button>
+  </div>
+  
+  
   </div>;
 }
 

@@ -2,9 +2,7 @@ import React from 'react';
 import {BrowserRouter,Link, Navigate, Outlet, Route,Routes} from'react-router-dom';
 import { useNavigate} from 'react-router-dom';
 
-import Projects from './projects/Projects'
-import { Message } from './message/Message';
-import { Profile } from './profile/Profile';
+import img from '../../assets/empImg.png'
 
 const Userdashboard=()=>{
     const navigate=useNavigate();
@@ -34,8 +32,8 @@ const Userdashboard=()=>{
    <ul class="space-y-2">
   
    <li class="flex">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 m-1 h-8 text-white">
-    <path fillRule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clipRule="evenodd" /></svg>
+    <img src={img} fill="currentColor" className="w-8 m-1 h-8 text-white">
+    </img>
 
  
        
@@ -51,11 +49,11 @@ const Userdashboard=()=>{
 
 
    <li>
-       <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+       <Link to='/userdashboard/query' class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
            <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"></path><path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path></svg>
            <span class="flex-1 ml-3 whitespace-nowrap">Inbox</span>
            <span class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium bg-blue-100 text-blue-800 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
-       </a>
+       </Link>
    </li>
    <li>
        <a href="/userdashboard/profile" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
