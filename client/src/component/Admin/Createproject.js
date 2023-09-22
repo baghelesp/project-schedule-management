@@ -40,7 +40,7 @@ function Createproject() {
         }
     }
     const renderList = data.empemail.map((item, index) => 
-                               <span class="text-white mt-1 pr-3 text-sm font-thin" key={index}>{item}</span>
+                               <span class="text-blue-700 mt-1 pr-3 text-sm font-thin" key={index}>{item}</span>
                              );
     const navigate=useNavigate();
 
@@ -71,7 +71,7 @@ function Createproject() {
    
     <>
     
-<div class="m-2 p-4 mr-2 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8bg-sky  hover:bg-sky-600 dark:bg-sky-900 dark:border-sky-900 dark:hover:bg-sky-800">
+<div class="m-2 p-4 mr-2 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8bg-sky bg-indigo-300">
 <form class="space-y-6" onSubmit={(e)=>handleSubmit(e)} action="#">
     <h5 class="text-xl font-medium text-gray-900 dark:text-white">Create Project</h5>
     <div>
@@ -91,14 +91,14 @@ function Createproject() {
         <div class="flex">
         <input type="email" value={empemail} onChange={(e)=>handleEmail(e)} name="empemail" id="empemai" class="bg-gray-50 border w-2/6 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-white dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" placeholder="name@company.com" />
         
-        <button type="button" onClick={addNewEmail} class="bg-green-500 m-2 hover:bg-green-600 text-white font-semibold  px-2 rounded-full">
+        <button type="button" onClick={addNewEmail} class="bg-green-500 m-2 hover:bg-green-600 text-gray font-semibold  px-2 rounded-full">
             Add ID
         </button>
         
         </div>
         
         <div >
-            <div class="font-normal text-sm mt-2 text-white">Added Members</div>
+            <div class="font-normal text-sm mt-2 text-gray">Added Members</div>
                 {renderList}
     </div>
         

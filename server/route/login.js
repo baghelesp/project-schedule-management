@@ -17,6 +17,9 @@ router.post("/",async(req,res)=>{
                 console.log("user : "+user);
                 return res.send({message:"Successfull", user: user});
             }
+            else{
+                return res.send({message:"UnSuccessfull"});
+            }
         }
     } catch (error) {
         console.log(error);

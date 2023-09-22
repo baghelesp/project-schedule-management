@@ -13,9 +13,11 @@ function Showtimeline() {
       <h4>Trace Product delivery</h4>
       <Timeline>
         <Timeline.Item>Task1</Timeline.Item>
+        <Timeline.Item>subtask1</Timeline.Item>
+        <Timeline.Item>Milestone1</Timeline.Item>
         <Timeline.Item>Task2</Timeline.Item>
-        <Timeline.Item>Order Delivered</Timeline.Item>
-        <Timeline.Item>Order Delivered</Timeline.Item>
+        <Timeline.Item>subtask2</Timeline.Item>
+        <Timeline.Item>Milestone2</Timeline.Item>
 
       </Timeline>
     </div>

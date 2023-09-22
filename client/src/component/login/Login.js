@@ -28,6 +28,7 @@ const Login=()=>{
             });
     }
     const [userType,setUserType]=useState("pmo");
+    const [message,setMessage]=useState("");
     const handleChange = (event) => {
         setUserType(event.target.value);
         console.log(event.target.value);
@@ -68,7 +69,11 @@ const Login=()=>{
               }
               else if(res.data.message=="UnSuccessfull")
               {
+                setMessage("wrong credentials")
                 console.log("User does not exits")
+              }
+              else{
+                console.log("User")
               }
             })
             
@@ -78,9 +83,10 @@ const Login=()=>{
     }
     return(
         <div class="md:flex  ">
-        <div class="w-full md:w-1/3 p-4 m-1 bg-white border border-gray-200 rounded-lg shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-full md:w-1/3 p-4 m-1 bg-slate-200 border border-gray-200 rounded-lg shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
             <form class="space-y-6" action="#" onSubmit={(e)=>handleSubmit(e)}>
                 <h5 class="text-xl font-medium text-gray-900 dark:text-white">Sign In</h5>
+                <p class="text-red-500">{message}</p>
                 
                 
                 <div class="mt-3">

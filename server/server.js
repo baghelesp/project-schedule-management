@@ -26,6 +26,8 @@ app.use("/api/userproject",userproject);
 app.use("/api/updateprogress", updateprogress);
 app.use("/api/projectreport",projectreport);
 
+//new AdminUser({firstName:"admin",lastName:"user",favColor:"red",schoolName:"kjps", luckyNumber:"4",email:"admin@gmail.com",password:"Admin@login"}).save();
+
 const port=5000;
 app.listen(port,()=>{
     console.log(`listening on localhost:${port}`);

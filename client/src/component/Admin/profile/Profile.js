@@ -6,7 +6,7 @@ const Profile = () => {
   return (
     <>
     
-<div class="w-full  md:m-2 max-w-sm bg-white border border-teal-200 rounded-lg shadow dark:bg-teal-800 dark:border-teal-700">
+<div class="w-full  md:m-2 max-w-sm bg-white border border-indigo-900 rounded-lg shadow ">
 
 <div class="flex flex-col items-center pt-10 pb-10">
     <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src={profileImg} alt="Bonnie image"/>

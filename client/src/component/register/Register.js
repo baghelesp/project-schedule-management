@@ -16,10 +16,10 @@ const Register=()=>{
     
   
  
-    const notify = () => {
+     const notify =  () => {
         toast.success("Registered Successfully", {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -29,6 +29,7 @@ const Register=()=>{
             });
     }
     const [userType,setUserType]=useState("pmo");
+    const [message,setMessage]=useState("");
 
     const handleChange = (event) => {
         setUserType(event.target.value);
@@ -62,12 +63,13 @@ const Register=()=>{
               if(res.data.message=="Successfull")
               {
                 notify();
-                console.log("User Succesfully registered")
-                navigate('/userdashboard')
+                
+                // navigate('/home/login')
               }
               else if(res.data.message=="UnSuccessfull")
               {
-                console.log("User alredy exits")
+                setMessage("User alredy exists")
+                console.log("user alredy exists")
               }
             })
             
@@ -79,9 +81,11 @@ const Register=()=>{
     return(
         <>
         <div class="md:flex ">
-        <div class="w-full md:w-1/3  p-4 m-1 bg-white border border-gray-200 rounded-lg shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+        
+        <div class="w-full md:w-1/3  p-4 m-1 bg-slate-200 border border-gray-200 rounded-lg shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
             <form class="space-y-6" action="#" onSubmit={(e)=>handleSubmit(e)}>
                 <h5 class="text-xl font-medium text-gray-900 dark:text-white">Register</h5>
+                <p class="text-red-500">{message}</p>
                 <div>
                     <label for="userType" class="block mb-2 text-sm font-medium dark:text-white ">Type of User ?</label>
                     <select id="userType" name="userType" value={userType} onChange={handleChange} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -130,7 +134,7 @@ const Register=()=>{
             </div>
             <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</button>
             <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
-                Already registered? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Login into account</a>
+                Already registered? <Link to='/home/login' class="text-blue-700 hover:underline dark:text-blue-500">Login into account</Link>
             </div>
 
 </form>

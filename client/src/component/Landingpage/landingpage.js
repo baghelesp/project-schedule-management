@@ -11,16 +11,14 @@ import IndividualIntervalsExample from '../Carousel/IndividualIntervalsExample';
 
 const Landingpage=()=>{
     
-    return(
-    <div className='container'>
+    return(<div>
         
        
         <Navbar/>
-        <Header/>
         
+        <Header/>
        
     
-    </div>
-    )
+    </div>);
 }
 export default Landingpage;

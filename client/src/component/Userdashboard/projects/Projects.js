@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Progress } from 'antd'
 import Ganttchart from './Ganttchart';
+import downarrow from '../../../assets/downarrow.png'
 
 
 const Projects = () => {
@@ -120,32 +121,32 @@ const Projects = () => {
     <>
     <ToastContainer/>
     <div>
-    <div class="block p-6 w-full bg-sky border border-sky-200 rounded-bl-lg rounded-br-lg shadow hover:bg-sky-600 dark:bg-sky-900 dark:border-sky-900 dark:hover:bg-sky-800">
-    <div class="bg-gradient-to-r rounded-lg m-1  p-2 from-indigo-600 via-purple-500 to-pink-500 ...">
-    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-sky-900 dark:text-white">Project Name : {projects.projectName}</h5>
+    <div class="block p-6 w-full bg-indigo-200 border border-indigo-200 rounded-bl-lg rounded-br-lg shadow  ">
+    <div class="bg-gradient-to-r rounded-lg m-1  p-2 from-indigo-300  to-gray-200 ...">
+    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-indigo-900 ">Project Name : {projects.projectName}</h5>
     </div>
-    <div class="bg-gradient-to-r rounded-lg m-1  p-2 from-indigo-600 via-purple-500 to-pink-500 ...">
-    <p class="font-300 text-sky-700 dark:text-white"><b class="text-teal-300">Problem Statement : </b> {projects.problemStatement}</p>
+    <div class="bg-gradient-to-r rounded-lg m-1  p-2 from-indigo-300  to-gray-200 ...">
+    <p class="font-300 text-gray-700 "><b class="text-indigo-900">Problem Statement : </b> {projects.problemStatement}</p>
     </div>
     <div>
-    <button class="bg-gradient-to-r text-sm text-bold  text-white rounded-lg m-1  p-1 from-teal-300 to-teal-600 ..." onClick={() => setShowMore(!showMore)}>Show more details...</button>
+    <button class=" text-sm text-bold  text-grey-600 rounded-lg m-1  p-1 bg-indigo-300" onClick={() => setShowMore(!showMore)}><img class='h-4 w-5' src={downarrow}/> </button>
     </div>
     
     { showMore &&
     <>
     
-    <div class="bg-gradient-to-r rounded-lg m-1 p-2 from-indigo-600 via-purple-500 to-pink-500 ...">
-    <p class="font-300 text-sky-700 dark:text-white"><b class="text-teal-300">Statement of work : </b> {projects.sow}</p>
+    <div class="bg-gradient-to-r rounded-lg m-1 p-2 from-indigo-300  to-gray-200 ...">
+    <p class="font-300 text-gray-700"><b class="text-indigo-900">Statement of work : </b> {projects.sow}</p>
     </div>
 
-    <div class="bg-gradient-to-r rounded-lg m-1 p-2 from-indigo-600 via-purple-500 to-pink-500 ...">
-    <p class="font-300 text-sky-700 dark:text-white"><b class="text-teal-300">Start date : </b> {projects.startDate} <b class="text-teal-300"> End date : </b> {projects.endDate}</p>
+    <div class="bg-gradient-to-r rounded-lg m-1 p-2 from-indigo-300  to-gray-200 ...">
+    <p class="font-300 text-gray-700"><b class="text-indigo-900">Start date : </b> {projects.startDate} <b class="text-indigo-900"> <br/> End date : </b> {projects.endDate}</p>
     </div>
-    <div class="bg-gradient-to-r rounded-lg m-1 p-2 from-indigo-600 via-purple-500 to-pink-500 ...">
-    <p class="font-300 text-sky-700 dark:text-white"><b class="text-teal-300">Budget : </b> {projects.budget}</p>
+    <div class="bg-gradient-to-r rounded-lg m-1 p-2 from-indigo-300  to-gray-200 ...">
+    <p class="font-300 text-gray-700"><b class="text-indigo-900">Budget : </b> {projects.budget}</p>
     </div>
-    <div class="bg-gradient-to-r rounded-lg m-1 p-2 from-indigo-600 via-purple-500 to-fuchsia-500 ...">
-    <p class="font-300 text-sky-700 dark:text-white"><b class="text-teal-300">Status :  </b> {projects.status}</p>
+    <div class="bg-gradient-to-r rounded-lg m-1 p-2 from-indigo-300  to-gray-200 ...">
+    <p class="font-300 text-gray-700"><b class="text-indigo-900">Status :  </b> {projects.status}</p>
     </div>
     </>
     }
@@ -165,14 +166,14 @@ const Projects = () => {
         }}
     />
     <Button.Group>
-      <Button style={{color:'white'}} onClick={decline} icon={<MinusOutlined />} />
-      <Button style={{color:'white'}} onClick={increase} icon={<PlusOutlined />} />
-      <p><Button style={{color:'white', marginLeft:'10px'}} onClick={saveProgress} >Save Progress</Button></p>
+      <Button style={{backgroundColor:'blue',color:'white'}} onClick={decline} icon={<MinusOutlined />} />
+      <Button style={{backgroundColor:'blue',color:'white'}} onClick={increase} icon={<PlusOutlined />} />
+      <p><Button style={{backgroundColor:'blue',color:'white', marginLeft:'10px'}} onClick={saveProgress} >Save Progress</Button></p>
       
     </Button.Group>
     
     </div>
-    <p class="text-white">
+    <p class="text-grey-600">
       <button onClick={showGanttChart}>click here to see a milestones and gantt chart</button>
     </p>
     </div>

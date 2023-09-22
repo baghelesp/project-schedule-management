@@ -18,6 +18,14 @@ import Navbar from './component/Userdashboard/projects/navbar';
 import Showtimeline from './component/Userdashboard/projects/timeline';
 import Landingpage from './component/Landingpage/landingpage';
 import Home from './component/Home/Home'
+
+//user 
+import UserActiveProject from './component/Userdashboard/Home/ActiveProject'
+import UserClosedProject from './component/Userdashboard/Home/ClosedProject'
+import UserHome from './component/Userdashboard/Home/Home'
+
+//Admin Home
+import AdminHome from './component/Admin/Home/AdminHome'
 //
 import ProjectReport from './component/Admin/ProjectReport/ProjectReport';
 import ActiveProject from './component/Admin/ProjectReport/ActiveProject';
@@ -42,6 +50,14 @@ function App() {
        
         </Route>
         <Route  path='/userdashboard' element={<Userdashboard/>}>
+            
+            <Route path='/userdashboard' element={<Navigate replace to="/userdashboard/home"/>}></Route>
+            <Route  path='/userdashboard/home' element={<UserHome/>}>
+                <Route path='/userdashboard/home/active' element={<UserActiveProject/>}></Route>
+                <Route  path='/userdashboard/home' element={<Navigate replace to="/userdashboard/home/active" />}></Route>
+                <Route path='/userdashboard/home/closed' element={<UserClosedProject/>}></Route>
+                
+            </Route>
             <Route  path='/userdashboard/query' element={<QueryNavbar/>}>
                 <Route path='/userdashboard/query/inbox' element={<Inbox/>}></Route>
                 <Route path='/userdashboard/query' element={<Navigate replace to='/userdashboard/query/inbox' />} />
@@ -59,6 +75,8 @@ function App() {
             <Route  path='/userdashboard/workstructure' element={<Workdowndetails/>}></Route>
         </Route> 
         <Route  path='/admindashboard' element={<Admindashboard/>}>
+        <Route path='/admindashboard' element={<Navigate replace to='/admindashboard/home'/>} />
+        <Route path='/admindashboard/home' element={<AdminHome/>}>  </Route>
             <Route path='/admindashboard/query' element={<Query/>}></Route>
             <Route path='/admindashboard/profile' element={<AdminProfile/>}></Route>
             <Route  path='/admindashboard/createproject' element={<Createproject/>}></Route>

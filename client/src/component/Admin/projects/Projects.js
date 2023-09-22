@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Progress } from 'antd'
 import Ganttchart from '../Ganttchart';
 import {Route, Link, Routes, useNavigate} from 'react-router-dom';
+import downarrow from '../../../assets/downarrow.png'
 const Projects = () => {
   
 let projectList;
@@ -54,7 +55,7 @@ const navigate = useNavigate();
   return (
     
     <div class="text-center">
-    <button onClick={goBack} class="rounded-md bg-blue-500 py-1 px-2 text-white">Go Back</button>
+    <button onClick={goBack} class="rounded-md bg-indigo-400 py-1 px-2 text-white">Go Back</button>
     <div>
 
     </div>
@@ -62,16 +63,21 @@ const navigate = useNavigate();
     {projects.map((item, index) => (
         <div key={index}>
         <div class="p-1">
-    <div class="block p-6 w-full bg-sky border border-sky-200 rounded-lg shadow hover:bg-sky-600 dark:bg-sky-900 dark:border-sky-900 dark:hover:bg-sky-800">
+    <div class="block p-6 w-full  border border-indigo-400 rounded-lg shadow  bg-indigo-400 ">
     
-    <div class="bg-gradient-to-r rounded-lg m-1  p-2 from-indigo-600 via-purple-500 to-pink-500 ...">
-    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-sky-900 dark:text-white">Project Name : {item.projectName}</h5>
+    <div class="bg-gradient-to-r rounded-lg m-1  p-2 from-indigo-200  to-gray-200 ...">
+    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-grey-900 ">Project Name : {item.projectName}</h5>
     </div>
-    <div class="bg-gradient-to-r rounded-lg m-1  p-2 from-indigo-600 via-purple-500 to-pink-500 ...">
-    <p class="font-300 text-sky-700 dark:text-white"><b class="text-teal-300">Problem Statement : </b> {item.problemStatement}</p>
+    <div class="bg-gradient-to-r rounded-lg m-1  p-2 from-indigo-200  to-gray-200 ...">
+    <p class="font-300 text-indigo-900 "><b class="text-gray-800">Problem Statement : </b> {item.problemStatement}</p>
     </div>
     <div>
-    <button class="bg-gradient-to-r text-sm text-bold  text-white rounded-lg m-1  p-1 from-green-600 to-green-600 ..." onClick={() => setShowMore(!showMore)}>Show more details...</button>
+    <button class=" text-sm text-bold  text-white rounded-lg m-1  p-1 bg-indigo-300 ..." onClick={() => setShowMore(!showMore)}>
+
+
+
+      <img class="h-5 w-6" src={downarrow}/>
+    </button>
     </div>
 
     
@@ -79,27 +85,27 @@ const navigate = useNavigate();
     { showMore &&
     <>
     
-    <div class="bg-gradient-to-r rounded-lg m-1 p-2 from-indigo-600 via-purple-500 to-pink-500 ...">
-    <p class="font-300 text-sky-700 dark:text-white"><b class="text-teal-300">Statement of work : </b> {item.sow}</p>
+    <div class="bg-gradient-to-r rounded-lg m-1 p-2 from-indigo-200  to-gray-200 ...">
+    <p class="font-300 text-indigo-900 "><b class="text-gray-800">Statement of work : </b> {item.sow}</p>
     </div>
-    <div class="bg-gradient-to-r rounded-lg m-1 p-2 from-indigo-600 via-purple-500 to-pink-500 ...">
-    <p class="font-300 text-sky-700 dark:text-white"><b class="text-teal-300">PMO Users : </b> 
+    <div class="bg-gradient-to-r rounded-lg m-1 p-2 from-indigo-200  to-gray-200 ...">
+    <p class="font-300 text-indigo-900 "><b class="text-gray-800">PMO Users : </b> 
             {item.empemail.map((emp, index) => (
                 <div key={index}>
-                <div>Name: {emp}</div>
+                <div class="font-semibold text-gray-600 ">UserID : {emp}</div>
                 </div>
             ))}
     </p>
     </div>
 
-    <div class="bg-gradient-to-r rounded-lg m-1 p-2 from-indigo-600 via-purple-500 to-pink-500 ...">
-    <p class="font-300 text-sky-700 dark:text-white"><b class="text-teal-300">Start date : </b> {item.startDate} <b class="text-teal-300"> End date : </b> {item.endDate}</p>
+    <div class="bg-gradient-to-r rounded-lg m-1 p-2 from-indigo-200  to-gray-200 ...">
+    <p class="font-300 text-indigo-900 "><b class="text-gray-800">Start date : </b> {item.startDate} <b class="text-gray-800"> <br/>End date : </b> {item.endDate}</p>
     </div>
-    <div class="bg-gradient-to-r rounded-lg m-1 p-2 from-indigo-600 via-purple-500 to-pink-500 ...">
-    <p class="font-300 text-sky-700 dark:text-white"><b class="text-teal-300">Budget : </b> {item.budget}</p>
+    <div class="bg-gradient-to-r rounded-lg m-1 p-2 from-indigo-200  to-gray-200 ...">
+    <p class="font-300 text-indigo-900 "><b class="text-gray-800">Budget : </b> {item.budget}</p>
     </div>
-    <div class="bg-gradient-to-r rounded-lg m-1 p-2 from-indigo-600 via-purple-500 to-fuchsia-500 ...">
-    <p class="font-300 text-sky-700 dark:text-white"><b class="text-teal-300">Status :  </b> {item.status}</p>
+    <div class="bg-gradient-to-r rounded-lg m-1 p-2 from-indigo-200  to-gray-200 ...">
+    <p class="font-300 text-indigo-900 "><b class="text-gray-800">Status :  </b> {item.status}</p>
     </div>
     </>
     }
